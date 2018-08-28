@@ -1,0 +1,24 @@
+<div class="quizesxblock_block">
+<p>QuizesXBlock:
+    {% if self.count <= self.total_questions %}
+        <div id="questions-container">
+            <h3>Q<span class="count">{{ self.count }}</span>:  <span class="question">{{ self.question.text }}</span></h3>
+            <div>
+                <form>
+                    {% for key, value in self.question.options.items %}
+                        <div class="question{{ self.count }}">
+                            <input id="option{{ forloop.counter }}_input" type="radio" name="answer" value="{{ key }}" />
+                            <span id="option{{ forloop.counter }}_span">{{ value }}</span>
+                        </div>
+                    {% endfor %}
+                    <br/>
+                    <input type="submit" value="Submit"/>
+                </form>
+            </div>
+        </div>
+    {% else %}
+        <h3>Summary</h3>
+        Correct: <span class="count">{{ self.correct }}</span> Out of <span class="count" >{{ self.total_questions }}</span>
+    {% endif %}
+</p>
+</div>
