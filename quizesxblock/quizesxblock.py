@@ -7,7 +7,7 @@ from xblock.fragment import Fragment
 from xblockutils.resources import ResourceLoader
 
 
-from constants import QUESTIONS
+from data import QUESTIONS
 
 # make it django template compatible
 loader = ResourceLoader(__name__)
