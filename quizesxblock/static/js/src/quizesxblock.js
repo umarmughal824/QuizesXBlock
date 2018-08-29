@@ -5,8 +5,8 @@ function QuizesXBlock(runtime, element) {
         if( result.count <= result.total_questions) {
             $("input[name='answer']:checked").prop( "checked", false );
             $('.count', element).text(result.count);
-            console.log(result.question);
             $('.question', element).text(result.question.text);
+            // console.log(result.question);
 
             var counter = 1;
             for (var key in result.question.options){
@@ -16,7 +16,7 @@ function QuizesXBlock(runtime, element) {
             }
         }
         else{
-            console.log('Completed Successfully');
+            // console.log('Completed Successfully');
             $("#questions-container").hide();
             var status = "<h3>Summary</h3>Correct: <span class='count'>"+ result.correct + "</span> Out of <span class='count'>" + result.total_questions + "</span>";
             $("div.quizesxblock_block").append(status);
