@@ -5,15 +5,15 @@ function QuizesXBlock(runtime, element) {
         if( result.count <= result.total_questions) {
             $("input[name='answer']:checked").prop( "checked", false );
             $('.count', element).text(result.count);
+            console.log(result.question);
             $('.question', element).text(result.question.text);
-            $('#option1_span', element).text(result.question.options.A);
-            $('#option1_input', element).val("A");
-            $('#option2_span', element).text(result.question.options.B);
-            $('#option2_input', element).val("B");
-            $('#option3_span', element).text(result.question.options.C);
-            $('#option3_input', element).val("C");
-            $('#option4_span', element).text(result.question.options.D);
-            $('#option4_input', element).val("D");
+
+            var counter = 1;
+            for (var key in result.question.options){
+                $('#option'+counter+'_span', element).text(result.question.options[key]);
+                $('#option'+counter+'_input', element).val(key);
+                counter++;
+            }
         }
         else{
             console.log('Completed Successfully');
