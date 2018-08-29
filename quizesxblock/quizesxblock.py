@@ -24,17 +24,17 @@ class QuizesXBlock(XBlock):
     # TO-DO: delete count, and define your own fields.
     count = Integer(
         default=1, scope=Scope.user_state,
-        help="A simple counter, to show something happening",
+        help="A simple counter, to show which question is being attempted",
     )
 
     correct = Integer(
         default=0, scope=Scope.user_state,
-        help="A simple counter, to show something happening",
+        help="A simple counter, to show how many answers are correct",
     )
 
     total_questions = Integer(
         default=len(QUESTIONS), scope=Scope.user_state_summary,
-        help="A simple counter, to show something happening",
+        help="Total no of questions",
     )
 
     question = Dict(
